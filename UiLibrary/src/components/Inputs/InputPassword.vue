@@ -13,12 +13,12 @@
       <button @click="togglePasswordVisibility">
         <img
           v-if="showPassword"
-          src="../../assets/eye.png"
+          src="../../assets/openEye.png"
           alt="Hide Password"
         />
         <img
           v-else
-          src="../../assets/eye.png"
+          src="../../assets/closeEye.png"
           alt="Show Password"
         />
       </button>

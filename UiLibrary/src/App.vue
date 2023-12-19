@@ -5,7 +5,6 @@
     <InputNumber></InputNumber>
     <InputPassword></InputPassword>
     <InputFile></InputFile>
-    <InputDate></InputDate>
   </div>
 </template>
 
@@ -15,7 +14,6 @@
   import InputPassword from './components/Inputs/InputPassword.vue';
   import InputNumber from './components/Inputs/InputNumber.vue';
   import InputFile from './components/Inputs/InputFile.vue';
-  import InputDate from './components/Inputs/InputDate.vue';
 
   export default{
     components: {
@@ -23,8 +21,7 @@
       InputEmail,
       InputNumber,
       InputPassword,
-      InputFile,
-      InputDate
+      InputFile
     }
   }
 </script>

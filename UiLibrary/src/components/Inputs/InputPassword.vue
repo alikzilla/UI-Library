@@ -1,29 +1,32 @@
 <template>
   <div>
     <div class="input-container">
-      <input
+      <label style="margin-left: 5px; font-size: 20px;" for="inputText">{{ label }}</label>
+      <div>
+        <input
         :type="showPassword ? 'text' : 'password'"
         name="inputPassword"
         id="inputPassword"
         v-model="inputValue"
         @input="handleInput"
         :class="{ 'error-input': errorInput }"
-        placeholder="Enter Password"
-      />
-      <button @click="togglePasswordVisibility">
-        <img
-          v-if="showPassword"
-          src="../../assets/openEye.png"
-          alt="Hide Password"
+        :placeholder="placeholder"
         />
-        <img
-          v-else
-          src="../../assets/closeEye.png"
-          alt="Show Password"
-        />
-      </button>
-      <div class="error" :class="{ 'error-visible': errorVisible }">
-        {{ errorMessage }}
+        <button @click="togglePasswordVisibility">
+          <img
+            v-if="showPassword"
+            src="../../assets/openEye.png"
+            alt="Hide Password"
+          />
+          <img
+            v-else
+            src="../../assets/closeEye.png"
+            alt="Show Password"
+          />
+        </button>
+        <div class="error" :class="{ 'error-visible': errorVisible }">
+          {{ errorMessage }}
+        </div>
       </div>
     </div>
   </div>
@@ -31,6 +34,20 @@
 
 <script>
 export default {
+  props: {
+    type: {
+      type: String,
+      default: 'password'
+    },
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    label: {
+      type: String,
+      default: 'Input'
+    }
+  },
   data() {
     return {
       inputValue: '',
@@ -61,6 +78,8 @@ export default {
 <style scoped>
 .input-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 input {
@@ -99,14 +118,14 @@ img {
   font-weight: bold;
   font-size: 20px;
   position: absolute;
-  top: -10px;
+  top: 20px;
   opacity: 0;
   transition: top 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 1;
 }
 
 .error-visible {
-  top: 60px;
+  top: 90px;
   opacity: 1;
 }
 

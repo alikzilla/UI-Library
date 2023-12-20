@@ -1,28 +1,31 @@
 <template>
   <div class="relative">
     <div class="input-container">
-      <textarea
+      <label style="margin-left: 5px; font-size: 20px;" for="inputText">{{ label }}</label>
+      <div>
+        <textarea
         name="File"
         id="fileArea"
         v-model="selectedFileName"
-        placeholder="Selected File Name"
+        :placeholder="placeholder"
         readonly
-      ></textarea>
-      <button @click="selectFile">
-        <img
-          src="../../assets/clip.png"
-          alt="Upload"
+        ></textarea>
+        <button @click="selectFile">
+          <img
+            src="../../assets/clip.png"
+            alt="Upload"
+          />
+        </button>
+        <input
+          type="file"
+          id="fileInput"
+          ref="fileInput"
+          @change="handleFileChange"
+          style="display: none; position: relative;"
         />
-      </button>
-      <input
-        type="file"
-        id="fileInput"
-        ref="fileInput"
-        @change="handleFileChange"
-        style="display: none; position: relative;"
-      />
-      <div class="error" :class="{ 'error-visible': errorVisible }">
-        {{ errorMessage }}
+        <div class="error" :class="{ 'error-visible': errorVisible }">
+          {{ errorMessage }}
+        </div>
       </div>
     </div>
   </div>
@@ -30,6 +33,20 @@
 
 <script>
 export default {
+  props:{
+    type: {
+      type: String,
+      default: 'File'
+    },
+    placeholder: {
+      type: String,
+      deefault: ''
+    },
+    label: {
+      type: String,
+      default: 'Input'
+    }
+  },
   data() {
     return {
       fileSelected: false,
@@ -72,8 +89,10 @@ export default {
 </script>
 
 <style scoped>
-.input-container{
+.input-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 textarea {
@@ -106,13 +125,14 @@ img {
   font-weight: bold;
   font-size: 20px;
   position: absolute;
-  bottom: -20px;
+  top: 20px;
   opacity: 0;
   transition: top 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 1;
 }
 
 .error-visible {
+  top: 90px;
   opacity: 1;
 }
 </style>

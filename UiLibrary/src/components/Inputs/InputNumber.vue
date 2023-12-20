@@ -1,17 +1,20 @@
 <template>
   <div>
     <div class="input-container">
-      <input
+      <label style="margin-left: 5px; font-size: 20px;" for="inputText">{{ label }}</label>
+      <div>
+        <input
         :type="type"
         name="inputNumber"
         id="inputNumber"
         v-model="inputValue"
         @input="handleInput"
         :class="{ 'error-input': errorInput }"
-        placeholder="Input Number"
-      />
-      <div class="error" :class="{ 'error-visible': errorVisible }">
-        {{ errorMessage }}
+        :placeholder="placeholder"
+        />
+        <div class="error" :class="{ 'error-visible': errorVisible }">
+          {{ errorMessage }}
+        </div>
       </div>
     </div>
   </div>
@@ -23,6 +26,14 @@ export default {
     type: {
       type: String,
       default: 'text'
+    },
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    label: {
+      type: String,
+      default: 'Input'
     }
   },
   data() {
@@ -52,6 +63,8 @@ export default {
 <style scoped>
 .input-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 input {
@@ -70,17 +83,16 @@ input {
   font-weight: bold;
   font-size: 20px;
   position: absolute;
-  top: -10px;
+  top: 20px;
   opacity: 0;
   transition: top 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 1;
 }
 
 .error-visible {
-  top: 60px;
+  top: 90px;
   opacity: 1;
 }
-
 .error-input {
   transition: 0.3s;
   outline-color: rgb(255, 47, 47);

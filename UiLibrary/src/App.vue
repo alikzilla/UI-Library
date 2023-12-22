@@ -1,5 +1,21 @@
 <template class="w-[100vw]">
   <Header title="UI Library"></Header>
+  <div>
+    <Navbar>
+      <template #brand> My Custom App</template>
+      <NavbarLink to="#home">Home</NavbarLink>
+      <NavbarLink to="#about">About</NavbarLink>
+      <NavbarLink to="#contact">Contact</NavbarLink>
+    </Navbar>
+
+    <Drawer>
+      <div>
+        <!-- Content inside the drawer -->
+        <h2>Drawer Content</h2>
+        <p>This is the content of the drawer.</p>
+      </div>
+    </Drawer>
+  </div>
   <div class="flex w-full">
     <div class="p-10 bg-gray-200 w-[70%] flex flex-col gap-[30px]">
       <InputText placeholder="Input Text"></InputText>
@@ -52,8 +68,39 @@
       <ImageCarousel :images="carouselImages" />  
       <Table :columns="tableColumns" :rows="tableRows" ></Table>  
       <List :items="listItems"></List>
+      <Breadcamp :items="breadcrumbItems"></Breadcamp>
+      <Tags></Tags>
+      <div>
+        <h2>My List:</h2>
+        <br>
+        <ListGroup>
+          <List :items="listItems" @click="handleItemClick(1)">Item 1</List>
+          <List :items="listItems" @click="handleItemClick(2)">Item 2</List>
+          <List :items="listItems" @click="handleItemClick(3)">Item 3</List>
+        </ListGroup>
+      </div>
+      <div>
+        <h2>Navigation</h2>
+        <Links>
+          <Link @click="navigateTo('home')">Home</Link>
+          <Link @click="navigateTo('about')">About</Link>
+          <Link @click="navigateTo('contact')">Contact</Link>
+        </Links>
+      </div>
+      <div>
+        <Tabs :tabs="tabs">
+          <template v-slot="{ activeTabIndex }">
+            <div v-if="activeTabIndex === 0">Content for Tab 1</div>
+            <div v-if="activeTabIndex === 1">Content for Tab 2</div>
+            <div v-if="activeTabIndex === 2">Content for Tab 3</div>
+          </template>
+        </Tabs>
+      </div>
     </div>
     <Sidebar class="w-[30%]" :menuItems="sidebarMenuItems"></Sidebar>
+  </div>
+  <div class="flex flex-col items-center">
+    <Pagination :currentPage="currentPage" :totalPages="totalPages" @page-change="handlePageChange"> </Pagination>
   </div>
   <Footer></Footer>
 </template>
@@ -87,6 +134,16 @@
   import Header from './components/Content/Header.vue';
   import Footer from './components/Content/Footer.vue';
   import Sidebar from './components/Content/Sidebar.vue';
+  import Breadcamp from './components/Navigation/Breadcamp.vue';
+  import Pagination from './components/Navigation/Pagination.vue';
+  import Tags from './components/Navigation/Tags.vue';
+  import ListGroup from './components/Navigation/ListGroup.vue';
+  import Links from './components/Navigation/Links.vue';
+  import Link from './components/Navigation/Link.vue';
+  import Navbar from './components/Navigation/Navbar.vue';
+  import NavbarLink from './components/Navigation/NavbarLink.vue';
+  import Tabs from './components/Navigation/Tabs.vue';
+  import Drawer from './components/Navigation/Drawer.vue';
 
   export default{
     components: {
@@ -117,7 +174,17 @@
       List,
       Header,
       Footer,
-      Sidebar
+      Sidebar,
+      Breadcamp,
+      Pagination,
+      Tags,
+      ListGroup,
+      Links,
+      Link,
+      Navbar,
+      NavbarLink,
+      Tabs,
+      Drawer
     },
     data() {
       return {
@@ -182,6 +249,19 @@
           'Contact',
           // Add more menu items as needed
         ],
+        breadcrumbItems: [
+          { label: 'Home', to: '/' },
+          { label: 'Category', to: '/category' },
+          { label: 'Product', to: '/category/product' },
+          // Add more breadcrumb items as needed
+        ],
+        currentPage: 1,
+        totalPages: 10,
+        tabs: [
+          { label: "Tab 1" },
+          { label: "Tab 2" },
+          { label: "Tab 3" },
+        ],
       };
     },
     methods: {
@@ -196,6 +276,18 @@
       },
       closeModal() {
         this.$refs.modal.closeModal();
+      },
+      handlePageChange(page) {
+        // Handle page change, e.g., fetch data for the new page
+        console.log('Page changed to:', page);
+        this.currentPage = page;
+      },
+      handleItemClick(itemNumber) {
+        alert(`Clicked on Item ${itemNumber}`);
+      },
+      navigateTo(page) {
+        alert(`Navigating to ${page}`);
+        // Implement your navigation logic here
       },
     }
   }

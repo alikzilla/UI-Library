@@ -1,16 +1,19 @@
+<!-- InputText.vue -->
+
 <template>
   <div>
     <div class="input-container">
       <label style="margin-left: 5px; font-size: 20px;" for="inputText">{{ label }}</label>
       <div>
         <input
-        :type="type"
-        name="inputText"
-        id="inputText"
-        v-model="inputValue"
-        @input="handleInput"
-        :class="{ 'error-input': errorInput }"
-        :placeholder="placeholder"
+          :type="type"
+          name="inputText"
+          id="inputText"
+          v-model="inputValue"
+          @input="handleInput"
+          @keyup.enter="handleEnter"
+          :class="{ 'error-input': errorInput }"
+          :placeholder="placeholder"
         />
         <div class="error" :class="{ 'error-visible': errorVisible }">
           {{ errorMessage }}
@@ -25,22 +28,22 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     label: {
       type: String,
-      default: 'Input'
-    }
+      default: 'Input',
+    },
   },
   data() {
     return {
       inputValue: '',
       errorMessage: 'Required.',
-      errorVisible: false
+      errorVisible: false,
     };
   },
   methods: {
@@ -49,8 +52,12 @@ export default {
     },
     handleInput() {
       this.errorVisible = this.errorInput = this.inputValue === '';
-    }
-  }
+    },
+    handleEnter() {
+      // Emit a custom 'enter' event when the Enter key is pressed
+      this.$emit('enter');
+    },
+  },
 };
 </script>
 

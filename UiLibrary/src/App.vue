@@ -24,7 +24,7 @@
       <InputPassword placeholder="Input Password"></InputPassword>
       <InputFile placeholder="Input File"></InputFile>
       <FormSelect :options="fruitOptions" v-model="selectedFruit" placeholder="Select"></FormSelect>
-      <FormTextarea placeholder="TextArea"></FormTextarea>
+      <FormTextarea placeholder="TextArea" @input="inputValue"></FormTextarea>
       <InputCheckbox label="Checkbox"></InputCheckbox>
       <InputRadio
         :options="radioOptions"
@@ -45,7 +45,7 @@
           <p>{{ item.title }} - {{ item.description }}</p>
         </template>
       </Accordion>
-      <ProgressBar :progress="33" :size="10"></ProgressBar>
+      <ProgressBar :progress="86" :size="10"></ProgressBar>
       <Tooltip>Hover Me</Tooltip>
 
       <button @click="openMessageBox" class="w-[150px] h-[60px] bg-white hover:bg-gray-300">Open MessageBox</button>  

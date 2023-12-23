@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import Footer from '../components/Content/Footer.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: Footer,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Content/Footer'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { Footer },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<Footer  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

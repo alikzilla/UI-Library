@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import InputDropdownButton from '../components/Inputs/InputDropdownButton.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: InputDropdownButton,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Inputs/InputDropdownButton'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { InputDropdownButton },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<InputDropdownButton v-bind="args" />',
   }),
   args: {
     //👇 The args you need here will depend on your component

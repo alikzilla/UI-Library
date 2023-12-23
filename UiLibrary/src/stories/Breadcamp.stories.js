@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import Breadcamp from '../components/Navigation/Breadcamp.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: Breadcamp,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Navigation/Breadcamp'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { Breadcamp },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<Breadcamp  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

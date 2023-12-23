@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import Header from '../components/Content/Header.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: Header,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Content/Header'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { Header },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<Header  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import InputSlider from '../components/Inputs/InputSlider.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: InputSlider,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Inputs/InputSlider'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { InputSlider },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<InputSlider v-bind="args" />',
   }),
   args: {
     //👇 The args you need here will depend on your component

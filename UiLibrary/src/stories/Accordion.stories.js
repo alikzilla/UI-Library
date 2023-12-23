@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import Accordion from '../components/Containers/Accordion.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: Accordion,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Containers/Accordion'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { Accordion },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<Accordion  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

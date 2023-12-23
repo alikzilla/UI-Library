@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import ModalWindow from '../components/Content/ModalWindow.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: ModalWindow,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Content/ModalWindow'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { ModalWindow },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<ModalWindow  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

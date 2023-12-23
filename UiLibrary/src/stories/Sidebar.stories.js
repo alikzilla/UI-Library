@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import Sidebar from '../components/Content/Sidebar.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: Sidebar,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Content/Sidebar'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { Sidebar },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<Sidebar  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

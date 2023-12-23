@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import Card from '../components/Containers/Card.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: Card,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Containers/Card'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { Card },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<Card  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import Tooltip from '../components/Content/Tooltip.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: Tooltip,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Content/Tooltip'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { Tooltip },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<Tooltip  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

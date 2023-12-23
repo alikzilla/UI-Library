@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import MessageBox from '../components/Content/MessageBox.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: MessageBox,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Content/MessageBox'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { MessageBox },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<MessageBox  />',
   }),
   args: {
     //👇 The args you need here will depend on your component

@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import InputCheckbox from '../components/Inputs/InputCheckbox.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: InputCheckbox,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Inputs/InputCheckbox'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { InputCheckbox },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<InputCheckbox v-bind="args" />',
   }),
   args: {
     //👇 The args you need here will depend on your component

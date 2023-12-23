@@ -1,10 +1,10 @@
-import InputText from '../components/Inputs/InputText.vue';
+import FormSelect from '../components/Inputs/FormSelect.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  component: InputText,
+  component: FormSelect,
   tags: ['autodocs'],
-  title: 'Inputs/InputText'
+  title: 'Inputs/FormSelect'
 };
 
 /*
@@ -14,11 +14,11 @@ export default {
  */
 export const FirstStory = {
   render: (args) => ({
-    components: { InputText },
+    components: { FormSelect },
     setup() {
       return { args };
     },
-    template: '<InputText v-bind="args" />',
+    template: '<FormSelect v-bind="args" />',
   }),
   args: {
     //👇 The args you need here will depend on your component
